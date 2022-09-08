@@ -1,4 +1,6 @@
+
 import 'package:flutter/material.dart';
+import 'dashboard.dart';
 
 class LoginPage extends StatelessWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -43,8 +45,12 @@ class LoginPage extends StatelessWidget {
                 height: 30.0,
               ),
               ElevatedButton(
-                onPressed: () {},
-                style: TextButton.styleFrom(),
+                onPressed: () {
+                  Navigator.push(context, 
+                  MaterialPageRoute(builder: 
+                  (context) => const Dashboard()));
+                },
+              style: TextButton.styleFrom(),
                child: const Text("Log in"))
 
           ]),

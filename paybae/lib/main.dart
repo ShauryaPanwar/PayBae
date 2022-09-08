@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:paybae/dashboard.dart';
+import 'dashboard.dart';
 import 'login-page.dart';
 
 void main() {
@@ -21,6 +22,7 @@ class PayBae extends StatelessWidget {
     initialRoute: "/",
     routes: {
       "/":(context) => const LoginPage(),
+      "/dashboard" :(context) => const Dashboard(),
     },
     );
   }
