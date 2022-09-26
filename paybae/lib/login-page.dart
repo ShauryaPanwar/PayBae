@@ -24,6 +24,7 @@ class LoginPage extends StatelessWidget {
             fontWeight: FontWeight.bold
           ),),
 
+
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 36, horizontal: 32),
           child: Column(
@@ -52,16 +53,13 @@ class LoginPage extends StatelessWidget {
                 },
               style: TextButton.styleFrom(),
                child: const Text("Log in"))
-
-          ]),
-          
+          ]
+          ),
+      
           )
-          
-
-
-
-
-        ]),
+        ]
+        ),
+      
     );
   }
 }
