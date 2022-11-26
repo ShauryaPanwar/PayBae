@@ -2,17 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:paybae/dashboard.dart';
 import 'package:firebase_auth/firebase_auth.dart' as firebase_auth;
-import 'package:paybae/signup.dart';
 
 
-class Login extends StatefulWidget {
-  const Login({Key? key}) : super(key: key);
+class SignUp extends StatefulWidget {
+  const SignUp({Key? key}) : super(key: key);
 
   @override
-  State<Login> createState() => _LoginState();
+  State<SignUp> createState() => _SignUpState();
 }
 
-class _LoginState extends State<Login> {
+class _SignUpState extends State<SignUp> {
     firebase_auth.FirebaseAuth firebaseAuth= firebase_auth.FirebaseAuth.instance; 
     TextEditingController _emailcontroller = TextEditingController();
     TextEditingController _pwdcontroller = TextEditingController();
@@ -30,21 +29,21 @@ class _LoginState extends State<Login> {
 
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: [Text("Login", style: TextStyle(fontSize: 35,color: Colors.white,fontWeight: FontWeight.bold
+            children: [Text("Sign Up", style: TextStyle(fontSize: 35,color: Colors.white,fontWeight: FontWeight.bold
             )
             ,),
             SizedBox(
               height: 20,
             ),
 
-            buttonItem('assets/images/google.svg', "Continue With Google",25),
+            // buttonItem('assets/images/google.svg', "Continue With Google",25),
             SizedBox(height: 15,),
-            buttonItem('assets/images/phone.svg', "Continue With Phone",30),
+            // buttonItem('assets/images/phone.svg', "Continue With Phone",30),
             SizedBox(
               height: 15,
 
             ),
-            Text("Or",style: TextStyle(color: Colors.white,fontSize: 18),),
+            // Text("Or",style: TextStyle(color: Colors.white,fontSize: 18),),
 
             SizedBox(
               height: 15,
@@ -64,31 +63,6 @@ class _LoginState extends State<Login> {
             ),
 
             colorButton(),
-
-            SizedBox(
-              height: 30,
-
-            ),
-
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text("You don't have an account?",
-                style: TextStyle(color: Colors.white, fontSize: 16),
-                ),
-                InkWell(
-                  onTap: (){
-                    Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (builder)=>SignUp()), (route) => false);
-                  },
-                  child: Text('Sign Up',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontWeight: FontWeight.w600,
-                  ),),
-                ),
-              ],
-            )
             
             
             ],
@@ -105,13 +79,12 @@ class _LoginState extends State<Login> {
 
   Widget colorButton(){
     return InkWell(
-      
       onTap: ()async {
         setState(() {
           circular=true;
         });
        try{
-        firebase_auth.UserCredential userCredential= await firebaseAuth.signInWithEmailAndPassword(
+        firebase_auth.UserCredential userCredential= await firebaseAuth.createUserWithEmailAndPassword(
           email: _emailcontroller.text, password: _pwdcontroller.text); 
           print(userCredential.user!.email);
           
@@ -147,7 +120,7 @@ class _LoginState extends State<Login> {
     
           )
         ),
-        child: Center(child: circular?CircularProgressIndicator() :Text("Login", style: TextStyle(color: Colors.white,fontSize: 20),)),
+        child: Center(child: circular?CircularProgressIndicator() :Text("Sign Up", style: TextStyle(color: Colors.white,fontSize: 20),)),
     
       ),
     );
@@ -158,33 +131,33 @@ class _LoginState extends State<Login> {
 
 
 
-  Widget buttonItem(String imagepath, String buttonName, double size){
-    return Container(
-              width: MediaQuery.of(context).size.width-60,
-              height: 60,
-              child: Card( 
-                color: Colors.black,
-                elevation: 8,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                side: BorderSide(
-                  width: 1,
-                  color: Colors.grey
-                )
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SvgPicture.asset(imagepath,height: size,width: size,
-                    ),
-                    SizedBox(width: 15,),
-                    Text( buttonName, style: TextStyle(color: Colors.white,
-                    fontSize: 17),)
-                  ],
-                ),
-              ),
-            );
-  }
+  // Widget buttonItem(String imagepath, String buttonName, double size){
+  //   return Container(
+  //             width: MediaQuery.of(context).size.width-60,
+  //             height: 60,
+  //             child: Card( 
+  //               color: Colors.black,
+  //               elevation: 8,
+  //               shape: RoundedRectangleBorder(
+  //                 borderRadius: BorderRadius.circular(15),
+  //               side: BorderSide(
+  //                 width: 1,
+  //                 color: Colors.grey
+  //               )
+  //               ),
+  //               child: Row(
+  //                 mainAxisAlignment: MainAxisAlignment.center,
+  //                 children: [
+  //                   SvgPicture.asset(imagepath,height: size,width: size,
+  //                   ),
+  //                   SizedBox(width: 15,),
+  //                   Text( buttonName, style: TextStyle(color: Colors.white,
+  //                   fontSize: 17),)
+  //                 ],
+  //               ),
+  //             ),
+  //           );
+  // }
 
   Widget textItem(String labeltext, TextEditingController controller,bool obscureText){
     return Container(

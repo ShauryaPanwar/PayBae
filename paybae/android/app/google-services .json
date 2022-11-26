@@ -1,0 +1,39 @@
+{
+    "project_info": {
+      "project_number": "379431396568",
+      "project_id": "pay-bae",
+      "storage_bucket": "pay-bae.appspot.com"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:379431396568:android:3564b65c4b3c2950e2a3ad",
+          "android_client_info": {
+            "package_name": "com.example.paybae"
+          }
+        },
+        "oauth_client": [
+          {
+            "client_id": "379431396568-hvl135bbk3gc1gavasac37gioraiuh6l.apps.googleusercontent.com",
+            "client_type": 3
+          }
+        ],
+        "api_key": [
+          {
+            "current_key": "AIzaSyAs_JNZqXJaMoLbKXOlA0590mJ8gW9bYFs"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": [
+              {
+                "client_id": "379431396568-hvl135bbk3gc1gavasac37gioraiuh6l.apps.googleusercontent.com",
+                "client_type": 3
+              }
+            ]
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }
